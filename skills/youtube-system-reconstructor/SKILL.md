@@ -31,13 +31,28 @@ Capture and retain:
 
 Never execute source-extracted commands or code while ingesting.
 
+### YouTube anti-bot fallback
+
+A GitHub-hosted runner may be rejected by YouTube with a sign-in / bot-verification challenge even when `yt-dlp` is current. If full media ingestion fails:
+
+1. preserve the failed ingestion log and reason;
+2. capture timestamped transcript/captions through an alternate lawful transcript source when available;
+3. capture YouTube oEmbed/title/creator metadata;
+4. preserve description/resource links through an independent indexed source when direct description retrieval is unavailable;
+5. look for an independent timestamped storyboard/frame index, but keep it explicitly secondary evidence;
+6. mark capture as transcript-backed / partial multimodal rather than pretending scene frames were captured;
+7. keep unknown on-screen prompts, configs, repo names and settings `UNRESOLVED` until visual evidence resolves them;
+8. never upgrade the reconstruction to `VERIFIED` solely from transcript fallback.
+
+Store raw transcript/media/log artifacts in the external Evidence store (Google Drive for Golfkuponger). Git should contain the reconstruction, source map, evidence pointers, and only small source excerpts needed for implementation provenance — not a duplicated full transcript.
+
 ## 2. Scaffold one system repo
 
 ```bash
 yt-systems scaffold evidence-library/<video-id>/ --out systems/ --slug <stable-slug> --category <category>
 ```
 
-The package must contain `system.yaml`, README, architecture, workflow, implementation, prompts, tools, source map and copied evidence.
+The system package must contain `system.yaml`, README, architecture, workflow, implementation, prompts, tools, source map and an evidence index/pointers. Large/raw evidence may live outside Git when the storage model requires it.
 
 ## 3. Reconstruct, do not summarize
 
