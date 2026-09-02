@@ -36,18 +36,8 @@ jobs:
           REQUEST_FILE="$(git diff --name-only "origin/${{ github.base_ref }}"...HEAD -- 'requests/*.txt' | head -n 1)"
           test -n "$REQUEST_FILE"
           URL="$(head -n 1 "$REQUEST_FILE" | tr -d '\r\n')"
-          VIDEO_ID="$(python - <<'PY' "$URL"
-import re, sys
-url=sys.argv[1]
-m=re.search(r'(?:v=|youtu\.be/|shorts/|embed/)([A-Za-z0-9_-]{11})', url)
-if not m and re.fullmatch(r'[A-Za-z0-9_-]{11}', url):
-    print(url)
-elif m:
-    print(m.group(1))
-else:
-    raise SystemExit('could not parse video id')
-PY
-          )"
+          VIDEO_ID="$(printf '%s' "$URL" | sed -E 's#.*(v=|youtu\.be/|shorts/|embed/)([A-Za-z0-9_-]{11}).*#\2#')"
+          [[ "$VIDEO_ID" =~ ^[A-Za-z0-9_-]{11}$ ]]
           echo "request_file=$REQUEST_FILE" >> "$GITHUB_OUTPUT"
           echo "url=$URL" >> "$GITHUB_OUTPUT"
           echo "video_id=$VIDEO_ID" >> "$GITHUB_OUTPUT"
@@ -73,24 +63,9 @@ PY
           VIDEO_ID="${{ steps.request.outputs.video_id }}"
           EVIDENCE_DIR="run-output/evidence/$VIDEO_ID"
           mkdir -p "$EVIDENCE_DIR"
-          curl -fL --retry 3 --retry-delay 2 \
-            "https://youtube-transcript.ai/transcript/$VIDEO_ID.txt" \
-            -o "$EVIDENCE_DIR/transcript.md"
-          curl -fL --retry 3 --retry-delay 2 \
-            "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=$VIDEO_ID&format=json" \
-            -o "$EVIDENCE_DIR/oembed.json" || true
-          python - <<'PY' "$EVIDENCE_DIR" "${{ steps.request.outputs.url }}"
-import json, pathlib, sys
-p=pathlib.Path(sys.argv[1])
-marker={
-  'source_url': sys.argv[2],
-  'ingestion_status': 'transcript_fallback',
-  'scene_frames': 0,
-  'multimodal': False,
-  'reason': 'Full yt-dlp/FFmpeg ingestion failed on GitHub runner; transcript captured from hosted caption endpoint.',
-}
-(p/'ingestion.json').write_text(json.dumps(marker, indent=2), encoding='utf-8')
-PY
+          curl -fL --retry 3 --retry-delay 2 "https://youtube-transcript.ai/transcript/$VIDEO_ID.txt" -o "$EVIDENCE_DIR/transcript.md"
+          curl -fL --retry 3 --retry-delay 2 "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=$VIDEO_ID&format=json" -o "$EVIDENCE_DIR/oembed.json" || true
+          jq -n --arg source "${{ steps.request.outputs.url }}" '{source_url:$source,ingestion_status:"transcript_fallback",scene_frames:0,multimodal:false,reason:"Full yt-dlp/FFmpeg ingestion failed on GitHub runner; transcript captured from hosted caption endpoint."}' > "$EVIDENCE_DIR/ingestion.json"
           echo "$EVIDENCE_DIR" > run-output/evidence-dir.txt
 
       - name: Record acceptance result
@@ -98,16 +73,8 @@ PY
         run: |
           set -euo pipefail
           EVIDENCE_DIR="$(cat run-output/evidence-dir.txt)"
-          python - <<'PY' "$EVIDENCE_DIR" "${{ steps.full.outcome }}"
-import json, pathlib, sys
-p=pathlib.Path(sys.argv[1])
-status={
-  'full_ingestion_step': sys.argv[2],
-  'evidence_dir': str(p),
-  'files': sorted(str(x.relative_to(p)) for x in p.rglob('*') if x.is_file()),
-}
-pathlib.Path('run-output/acceptance.json').write_text(json.dumps(status, indent=2), encoding='utf-8')
-PY
+          find "$EVIDENCE_DIR" -type f -printf '%P\n' | sort | jq -R -s 'split("\n")[:-1]' > run-output/files.json
+          jq -n --arg full "${{ steps.full.outcome }}" --arg dir "$EVIDENCE_DIR" --argjson files "$(cat run-output/files.json)" '{full_ingestion_step:$full,evidence_dir:$dir,files:$files}' > run-output/acceptance.json
           cat run-output/acceptance.json
 
       - name: Upload ingestion evidence
