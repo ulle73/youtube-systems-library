@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "youtube-systems-library"
+version = "0.1.0"
+description = "Turn implementation-heavy YouTube tutorials into traceable reusable system repositories."
+requires-python = ">=3.11"
+dependencies = ["PyYAML>=6", "jsonschema>=4"]
+
+[project.optional-dependencies]
+youtube = ["yt-dlp>=2025.1.1"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+yt-systems = "yt_systems.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.setuptools.package-data]
+yt_systems = ["schemas/*.json"]
