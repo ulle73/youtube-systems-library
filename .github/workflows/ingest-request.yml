@@ -1,0 +1,119 @@
+name: Ingest YouTube request
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'requests/**'
+
+permissions:
+  contents: read
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install project and ingestion dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e '.[youtube]'
+          ffmpeg -version | head -n 1
+
+      - name: Resolve request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          REQUEST_FILE="$(git diff --name-only "origin/${{ github.base_ref }}"...HEAD -- 'requests/*.txt' | head -n 1)"
+          test -n "$REQUEST_FILE"
+          URL="$(head -n 1 "$REQUEST_FILE" | tr -d '\r\n')"
+          VIDEO_ID="$(python - <<'PY' "$URL"
+import re, sys
+url=sys.argv[1]
+m=re.search(r'(?:v=|youtu\.be/|shorts/|embed/)([A-Za-z0-9_-]{11})', url)
+if not m and re.fullmatch(r'[A-Za-z0-9_-]{11}', url):
+    print(url)
+elif m:
+    print(m.group(1))
+else:
+    raise SystemExit('could not parse video id')
+PY
+          )"
+          echo "request_file=$REQUEST_FILE" >> "$GITHUB_OUTPUT"
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "video_id=$VIDEO_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Full multimodal ingestion
+        id: full
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p run-output/evidence
+          yt-systems ingest "${{ steps.request.outputs.url }}" --out run-output/evidence 2>&1 | tee run-output/full-ingest.log
+          EVIDENCE_DIR="$(find run-output/evidence -mindepth 1 -maxdepth 1 -type d | head -n 1)"
+          test -n "$EVIDENCE_DIR"
+          yt-systems timeline "$EVIDENCE_DIR" 2>&1 | tee run-output/timeline.log
+          echo "$EVIDENCE_DIR" > run-output/evidence-dir.txt
+
+      - name: Transcript fallback when full ingestion is blocked
+        if: steps.full.outcome != 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          VIDEO_ID="${{ steps.request.outputs.video_id }}"
+          EVIDENCE_DIR="run-output/evidence/$VIDEO_ID"
+          mkdir -p "$EVIDENCE_DIR"
+          curl -fL --retry 3 --retry-delay 2 \
+            "https://youtube-transcript.ai/transcript/$VIDEO_ID.txt" \
+            -o "$EVIDENCE_DIR/transcript.md"
+          curl -fL --retry 3 --retry-delay 2 \
+            "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=$VIDEO_ID&format=json" \
+            -o "$EVIDENCE_DIR/oembed.json" || true
+          python - <<'PY' "$EVIDENCE_DIR" "${{ steps.request.outputs.url }}"
+import json, pathlib, sys
+p=pathlib.Path(sys.argv[1])
+marker={
+  'source_url': sys.argv[2],
+  'ingestion_status': 'transcript_fallback',
+  'scene_frames': 0,
+  'multimodal': False,
+  'reason': 'Full yt-dlp/FFmpeg ingestion failed on GitHub runner; transcript captured from hosted caption endpoint.',
+}
+(p/'ingestion.json').write_text(json.dumps(marker, indent=2), encoding='utf-8')
+PY
+          echo "$EVIDENCE_DIR" > run-output/evidence-dir.txt
+
+      - name: Record acceptance result
+        shell: bash
+        run: |
+          set -euo pipefail
+          EVIDENCE_DIR="$(cat run-output/evidence-dir.txt)"
+          python - <<'PY' "$EVIDENCE_DIR" "${{ steps.full.outcome }}"
+import json, pathlib, sys
+p=pathlib.Path(sys.argv[1])
+status={
+  'full_ingestion_step': sys.argv[2],
+  'evidence_dir': str(p),
+  'files': sorted(str(x.relative_to(p)) for x in p.rglob('*') if x.is_file()),
+}
+pathlib.Path('run-output/acceptance.json').write_text(json.dumps(status, indent=2), encoding='utf-8')
+PY
+          cat run-output/acceptance.json
+
+      - name: Upload ingestion evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: youtube-ingestion-${{ steps.request.outputs.video_id }}
+          path: run-output/
+          if-no-files-found: error
+          retention-days: 7
