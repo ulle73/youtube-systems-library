@@ -1,0 +1,241 @@
+id: jack-roberts-seven-level-converting-website
+name: Seven-Level Claude Website Conversion Workflow
+category: website-design-conversion
+source:
+  type: youtube
+  url: https://www.youtube.com/watch?v=pUu4G2lINnk
+  creator: Jack Roberts
+  title: Insane Claude Design Skills You Actually Need To Build Beautiful Sites
+  video_id: pUu4G2lINnk
+  duration: '22:55'
+reconstruction_status: RECONSTRUCTED
+capture:
+  status: TRANSCRIPT_BACKED_PARTIAL_MULTIMODAL
+  raw_evidence_drive: https://drive.google.com/file/d/15H34NZ-Z_7wSltr4Z5Y96y5T2_fKOX6I/view
+  github_action_run: https://github.com/ulle73/youtube-systems-library/actions/runs/33637421311
+  full_video_capture: FAILED_YOUTUBE_ANTI_BOT
+  transcript_capture: SUCCESS
+  oembed_capture: SUCCESS
+  scene_frames: UNAVAILABLE_FROM_OUR_INGESTION
+  secondary_storyboard: https://moderncreator.app/2026-08-31-jack-roberts-the-seven-claude-skills-behind-a-10-000-website
+objective: Build a full, conversion-oriented website with Claude by chaining seven design/structure/copy/SEO stages instead of prompting for a pretty homepage in one shot.
+inputs:
+- business/niche brief
+- gold-standard reference URL
+- brand/style constraints
+- required site pages and offers
+- real business proof and facts
+- target customer and search intent
+- optional UI/component references
+- optional image/video references
+outputs:
+- full site architecture and sitemap
+- wireframes/style guide export
+- Claude-built website
+- on-brand image/video assets
+- interactive conversion element
+- mobile-optimized build
+- humanized copy
+- polished UI/icons
+- SEO keyword/content roadmap
+- GitHub-hosted code deployed with Vercel
+tools:
+- Claude / Claude Code or Claude Design
+- refero.design
+- Mintlify (example reference)
+- Relume
+- Design Loop skill
+- Higgsfield
+- Savee
+- SlopMonster
+- 21st.dev
+- Flaticon
+- Icons8
+- IconScout
+- Claude SEO skill/repository (exact repo unresolved)
+- mobile optimization repo (exact repo unresolved)
+- GitHub
+- Vercel
+- Glaido (example SEO target)
+steps:
+- id: 01-reference-standard
+  name: Find the standard
+  action: Find a gold-standard, award-winning or proven-converting site in the same niche and use its design DNA as a reference instead of describing taste from scratch. Jack demonstrates refero.design and selects Mintlify as the reference example.
+  tool: refero.design
+  provenance: EXACT
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 00:33-01:46
+    provenance: EXACT
+    note: Level 1; reference-first design process; Mintlify example is independently corroborated by Modern Creator.
+- id: 02-site-map
+  name: Map the whole site before polishing
+  action: Write a business brief in Relume and generate the complete sitemap first, including the pages a real site needs rather than stopping at the homepage.
+  tool: Relume
+  provenance: EXACT
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 01:46-03:25
+    provenance: EXACT
+    note: Level 2; Relume generates full sitemap and site structure.
+- id: 03-wireframes-style
+  name: Edit wireframes and style guide
+  action: Review/reorder the generated wireframes, edit sections, and set colors/style before exporting. Treat this pre-build structure as the blueprint.
+  tool: Relume
+  provenance: EXACT
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 03:26-03:47
+    provenance: EXACT
+    note: Wireframes can be moved/edited; style guide and colors are reviewed before export.
+- id: 04-export-to-claude
+  name: Export blueprint into Claude
+  action: Export the Relume project (Jack uses HTML ZIP), upload the ZIP to Claude, provide the original reference URL as visual context, and ask Claude to build the website from the exported system.
+  tool: Claude + Relume
+  provenance: EXACT
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 03:47-04:19
+    provenance: EXACT
+    note: HTML export, ZIP upload, original reference URL supplied to Claude.
+- id: 05-design-loop
+  name: Run independent design critique loop
+  action: Attach/activate Jack Roberts' Design Loop skill so the implementation is iteratively critiqued rather than relying on Claude to judge its own first draft. The current video names the skill but does not expose its full implementation. Same-creator supporting material shows fresh-context brief, system, and craft critics.
+  tool: Design Loop skill
+  provenance: RECONSTRUCTED
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 04:19-05:42
+    provenance: EXACT
+    note: Current source explicitly installs/uses the Design Loop skill.
+  - source_url: https://app.frontiernews.tech/videos/1390
+    timestamp: related tutorial
+    provenance: RECONSTRUCTED
+    note: Same-creator tutorial describes independent brief/system/craft critics; used only as cross-source enrichment.
+- id: 06-higgsfield-assets
+  name: Connect image/video generation
+  action: Connect Higgsfield to Claude via its CLI/integration, then generate site images, logos, and videos in a consistent visual direction from within the build workflow.
+  tool: Higgsfield
+  provenance: EXACT
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 05:42-09:22
+    provenance: EXACT
+    note: Connect Higgsfield to Claude and use it for images/video/logos.
+- id: 07-scroll-stopper
+  name: Build an interactive value-first element
+  action: 'Use visual inspiration (Jack uses Savee) and create an interactive lead magnet that returns immediate value before asking for contact details. Roofing example: upload roof image + answer questions -> animated analysis -> estimated price -> lead capture.'
+  tool: Claude + Savee
+  provenance: EXACT
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 09:23-12:41
+    provenance: EXACT
+    note: Interactive roof quote calculator shown as the conversion example.
+- id: 08-mobile
+  name: Mobile optimize and manually inspect
+  action: Run a dedicated mobile optimization pass, preferably mobile-first. Ask Claude to use a proven mobile-design repository/skill, then manually inspect the site on a phone/small screens; do not trust automated checks alone.
+  tool: Claude + unresolved mobile optimization repo
+  provenance: EXACT
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 12:41-14:53
+    provenance: EXACT
+    note: Mobile optimization is Level 4; exact repository is referenced but not identifiable from captured source.
+- id: 09-deslop
+  name: De-slop the copy
+  action: Audit all visible copy for common AI-writing tells, replace generic marketing claims with concrete/checkable specifics, never invent proof, and favor immediate comprehension. Jack points to SlopMonster; its linked repository implements lint -> rewrite -> rival-model cleanse -> re-lint.
+  tool: SlopMonster
+  provenance: EXACT
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 14:53-18:30
+    provenance: EXACT
+    note: Level 5; Jack demonstrates AI-copy tells and links SlopMonster.
+  - source_url: https://github.com/ItsssssJack/SlopMonster
+    timestamp: null
+    provenance: EXACT
+    note: Linked dependency documents the lint/rewrite/rival-cleanse/re-lint loop.
+- id: 10-ui-snipe
+  name: Snipe proven UI components
+  action: Find a UI component that already solves the visual/interaction problem in Relume or 21st.dev, copy its code/reference, ask Claude to integrate it, and restyle it to the site brand rather than designing every component from zero.
+  tool: 21st.dev / Relume
+  provenance: EXACT
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 18:30-20:30
+    provenance: EXACT
+    note: Jack explicitly describes UI sniping and component reuse.
+- id: 11-icons
+  name: Replace generic iconography
+  action: Use dedicated icon libraries such as Flaticon, Icons8, or IconScout for final visual polish instead of accepting generic AI-generated icon choices.
+  tool: Flaticon / Icons8 / IconScout
+  provenance: EXACT
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 19:42-20:30
+    provenance: EXACT
+    note: Icon sources named in the video.
+- id: 12-seo
+  name: Build SEO strategy from customer intent
+  action: Give Claude a dedicated SEO skill/repository plus customer/keyword context; have it question you about the customer, identify short- and long-tail intent terms, prioritize opportunities using volume and difficulty, and turn them into a site/content roadmap.
+  tool: Claude + unresolved Claude SEO repo
+  provenance: EXACT
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 20:30-21:54
+    provenance: EXACT
+    note: Level 7; exact SEO repository identity is not recoverable from current evidence.
+- id: 13-launch
+  name: Version and deploy
+  action: Push the finished website to a private GitHub repository and connect it to Vercel so code pushes update the deployment.
+  tool: GitHub + Vercel
+  provenance: EXACT
+  evidence:
+  - source_url: https://www.youtube.com/watch?v=pUu4G2lINnk
+    timestamp: 21:55-22:31
+    provenance: EXACT
+    note: Private GitHub repo and Vercel deployment are explicitly described.
+prompts:
+- id: higgsfield-connect
+  workflow_step: 06-higgsfield-assets
+  status: EXACT_PARTIAL
+  timestamp: 06:05-06:39
+  instruction: Tell Claude to connect to the Higgsfield CLI using the supplied link so the build can generate images and videos.
+  note: Short instruction reconstructed from transcript; link itself is source-dependent.
+- id: relume-to-claude
+  workflow_step: 04-export-to-claude
+  status: EXACT_PARTIAL
+  timestamp: 03:47-04:19
+  instruction: Tell Claude to build the site using the uploaded Relume HTML ZIP plus the original reference URL/design system.
+  note: Intent is explicit; exact punctuation/wording is not required for function.
+- id: roof-quote-tool
+  workflow_step: 07-scroll-stopper
+  status: EXACT_PARTIAL
+  timestamp: 10:12-10:57
+  instruction: 'Ask the Design Loop to make a roofing version of the reference interaction: image upload, qualification questions, analysis animation, estimate, then information capture.'
+  note: Functional prompt reconstructed without reproducing the video transcript verbatim.
+- id: seo-strategy
+  workflow_step: 12-seo
+  status: EXACT_PARTIAL
+  timestamp: 20:30-21:54
+  instruction: Ask Claude to review a trusted SEO repo, question you about the target customer, find short/long-tail intent keywords, prioritize by volume/difficulty, then produce an SEO/content roadmap.
+  note: Exact repository name remains unresolved.
+dependencies:
+- name: SlopMonster
+  url: https://github.com/ItsssssJack/SlopMonster
+  status: EXACT_LINKED_REPO
+  role: copy quality gate/humanization
+- name: Design Loop
+  url: https://bit.ly/3RNNDLa
+  status: EXACT_RESOURCE_ROUTE_CONTENT_NOT_CAPTURED
+  role: design critique loop
+- name: Mobile optimization repo
+  url: null
+  status: UNRESOLVED
+  role: mobile review/optimization
+- name: Claude SEO repo
+  url: null
+  status: UNRESOLVED
+  role: SEO research/strategy
+notes: 'This is a source-backed reconstruction of the workflow demonstrated in System #001. It is not VERIFIED as a pixel-perfect clone because our live yt-dlp capture was blocked by YouTube anti-bot protection and no direct scene frames were captured. Raw transcript/oEmbed and Action logs are stored in Drive; a third-party timestamped storyboard/transcript was used as corroboration. Do not infer the identities of the unresolved mobile or SEO repositories.'
