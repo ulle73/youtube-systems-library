@@ -1,0 +1,95 @@
+id: system-003-riley-brown-agent-native-realtime-board
+name: Riley Brown Agent-Native Realtime Board
+status: RECONSTRUCTED
+capture_status: transcript-backed-partial-multimodal
+category:
+  - agent-native-applications
+  - multi-agent-coordination
+  - realtime-operations
+source:
+  title: Claude Fable 5.1 is WAY Better Than You Think (Builds Anything)
+  creator: Riley Brown
+  url: https://www.youtube.com/watch?v=3cYTWLdHgAE
+  publication_date: 2026-09-09
+  retrieval_date: 2026-09-11
+objective: >-
+  Build one operational application that humans and agents from multiple AI platforms can
+  read and update through a shared action interface while all clients observe the same
+  durable state and attributed changes.
+architecture:
+  human_client:
+    state: EXACT
+    role: normal web UI for people
+  agent_clients:
+    state: EXACT
+    examples: [Claude, Codex, GrokBot]
+    role: machine users of the same business application
+  portable_agent_interface:
+    state: EXACT
+    role: application-specific skill/instructions that let agents operate the board
+  application_backend:
+    state: RECONSTRUCTED
+    role: validated operations between clients and state
+  shared_realtime_state:
+    state: EXACT
+    example: Convex
+    role: common database/state visible to all clients
+  attribution:
+    state: EXACT
+    role: record which human or agent performed an action
+  deployment:
+    state: EXACT
+    examples: [GitHub, Vercel]
+core_workflow:
+  - define_agent_native_job
+  - write_five_part_build_brief
+  - generate_first_pass
+  - inspect_backend_state
+  - verify_human_write
+  - install_agent_interface_in_second_client
+  - verify_agent_write
+  - run_six_point_qa
+  - batch_revision_findings
+  - cross_agent_interoperability_test
+  - verify_second_human_realtime_update
+  - deploy
+  - populate_from_operational_context
+frameworks:
+  five_part_build_brief:
+    state: EXACT
+    steps: [platform, reference_app, user_flow, design_direction, database_choice]
+  six_point_post_build_qa:
+    state: EXACT
+    steps: [function, layout, mobile, data_realtime, test_edge_cases, secure]
+principles:
+  shared_state_over_shared_chat:
+    state: RECONSTRUCTED
+    description: Multiple agents coordinate by reading and writing durable application state rather than relying on shared conversation history.
+  agent_as_first_class_user:
+    state: EXACT
+    description: Agent identities and attributed actions are part of the product model.
+  machine_interface_separate_from_human_ui:
+    state: RECONSTRUCTED
+    description: A portable agent-facing interface can expose application actions independently of the human UI.
+  backend_verification:
+    state: EXACT
+    description: Inspect schema/records and real writes rather than trusting the rendered UI alone.
+  cross_agent_testing:
+    state: EXACT
+    description: Reuse the interface from another agent platform to test interoperability and surface failures.
+risks:
+  - shared credentials can collapse multiple agents into one displayed identity
+  - portable skill files must not embed broadly reusable secrets in production
+  - prototype does not establish RBAC, tenant isolation, idempotency, audit rollback or load safety
+  - Convex segment is sponsored; product choice should not be generalized as unique requirement
+  - model superiority claims are time-sensitive practitioner opinion
+unresolved:
+  - exact skill file contents and auth design
+  - per-agent scoped token model
+  - complete backend function/API contract
+  - idempotency and concurrency handling
+  - audit/event schema and rollback
+  - production security hardening
+evidence:
+  drive: GOLFKUPONGER/Systems Library/Evidence/2026-09-09_riley-brown_agent-native-realtime-board_evidence.md
+  research_topic: GOLFKUPONGER/Research Library/Topics/Agent-Native Application Architecture
