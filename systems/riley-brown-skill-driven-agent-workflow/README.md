@@ -47,7 +47,7 @@ The public repository shows mixed credential hygiene: several skills use environ
 When a repeated AI-assisted job appears, search for an existing skill/system first. If none fits, solve the task well before formalizing it. Promote the proven procedure into a small reusable skill, test it in fresh context, refine it from failures and only then compose or automate it. Put exact repeatable operations in tools/scripts when useful, keep mutable business truth outside durable skill instructions, and never apply the low-risk creative evaluation standard to payments, customer-impacting writes, compliance-sensitive actions or destructive operations.
 
 ## Evidence
-- Source: https://www.youtube.com/watch?v=3cYTWLdHgAE
+- Source: https://www.youtube.com/watch?v=N34zz1-RSGw
 - Primary implementation corroboration: https://github.com/rbrown101010/rileys-skills
 - Drive evidence: `GOLFKUPONGER/Systems Library/Evidence/2026-08-16_riley-brown_skill-driven-agent-workflow_evidence.md`
 - Research topic: `GOLFKUPONGER/Research Library/Topics/Agentic Workflow Design/`
