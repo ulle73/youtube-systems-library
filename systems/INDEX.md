@@ -25,10 +25,13 @@ When answering future website-system questions, treat this as a source-backed im
 - **Creator:** Riley Brown
 - **Category:** agentic-workflow-design / skill-engineering
 - **Status:** RECONSTRUCTED
-- **Capture:** transcript-backed structured recovery; partial multimodal because primary Apify retrieval hit the connected account's monthly usage hard limit
-- **Core sequence:** real work -> useful repetition -> skill -> outcome test -> failure feedback -> skill update -> fresh-context retest -> composition -> risk gate -> local/cloud execution
-- **Strongest evidence:** bottom-up skill creation (19:04–19:16), skill composition (31:15–31:55), fresh-context outcome loop (32:08–33:07), risk-dependent review (33:23–33:45), local/cloud split (34:53–37:58)
-- **Unresolved:** formal reliability threshold, version/rollback protocol, automated eval suite, large-scale composition reliability, frame-level UI details
+- **Capture:** transcript-backed + primary public skill-repository corroboration; partial multimodal; preferred Apify transcript retrieval remained blocked by account hard limit
+- **Core lifecycle:** real work -> useful repetition -> skill -> outcome test -> failure feedback -> skill update -> fresh-context retest -> composition -> risk gate -> local/cloud execution
+- **Implementation architecture:** skill instructions/orchestration -> scripts/CLIs/other skills -> APIs/tools -> artifacts/state -> human review
+- **Primary corroboration:** Riley's public `rileys-skills` repository; especially concrete composition in `youtube-thumbnail`, which reuses YouTube research + internet asset retrieval + image generation
+- **Strongest video evidence:** bottom-up skill creation (19:04–19:16), skill composition (31:15–31:55), fresh-context outcome loop (32:08–33:07), risk-dependent review (33:23–33:45), local/cloud split (34:53–37:58)
+- **Security finding:** one public helper contains hardcoded default API credentials; values are intentionally excluded and must not be reused
+- **Unresolved:** formal reliability threshold, version/rollback protocol, automated eval suite, large-scale composition reliability, private/local skill details, frame-level UI details
 - **Raw evidence:** stored separately in Google Drive Systems Library / Evidence
 
-When answering future questions about creating, refining or composing AI skills/workflows, treat this as a source-backed operating model. Prefer its bottom-up promotion rule and fresh-context retest loop over speculative skill-library design, while preserving stricter audit requirements for high-blast-radius work.
+When answering future questions about creating, refining or composing AI skills/workflows, treat this as a source-backed operating model. Prefer its bottom-up promotion rule, deterministic-tool boundary and fresh-context retest loop over speculative skill-library design. Prefer small composable primitives with explicit dependencies, and preserve stricter audit requirements for high-blast-radius work.
