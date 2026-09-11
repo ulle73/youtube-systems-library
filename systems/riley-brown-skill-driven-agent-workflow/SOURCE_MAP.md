@@ -1,6 +1,6 @@
 # Source Map
 
-Primary video source: https://www.youtube.com/watch?v=3cYTWLdHgAE
+Primary video source: https://www.youtube.com/watch?v=N34zz1-RSGw
 Primary implementation corroboration: https://github.com/rbrown101010/rileys-skills
 
 Capture status: **transcript-backed + primary public skill-repository corroboration; partial multimodal**. Do not treat video UI-specific details as frame-verified.
