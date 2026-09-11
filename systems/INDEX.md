@@ -17,3 +17,18 @@ Search this index first, then inspect each system's `system.yaml`, `SOURCE_MAP.m
 - **Raw evidence:** stored separately in Google Drive Systems Library / Evidence
 
 When answering future website-system questions, treat this as a source-backed implementation candidate rather than generic model advice. Preserve its EXACT / RECONSTRUCTED / INFERRED distinctions when adapting it.
+
+## System #002 — Riley Brown Skill-Driven Agent Workflow
+
+- **Path:** `systems/riley-brown-skill-driven-agent-workflow/`
+- **Source:** https://www.youtube.com/watch?v=3cYTWLdHgAE
+- **Creator:** Riley Brown
+- **Category:** agentic-workflow-design / skill-engineering
+- **Status:** RECONSTRUCTED
+- **Capture:** transcript-backed structured recovery; partial multimodal because primary Apify retrieval hit the connected account's monthly usage hard limit
+- **Core sequence:** real work -> useful repetition -> skill -> outcome test -> failure feedback -> skill update -> fresh-context retest -> composition -> risk gate -> local/cloud execution
+- **Strongest evidence:** bottom-up skill creation (19:04–19:16), skill composition (31:15–31:55), fresh-context outcome loop (32:08–33:07), risk-dependent review (33:23–33:45), local/cloud split (34:53–37:58)
+- **Unresolved:** formal reliability threshold, version/rollback protocol, automated eval suite, large-scale composition reliability, frame-level UI details
+- **Raw evidence:** stored separately in Google Drive Systems Library / Evidence
+
+When answering future questions about creating, refining or composing AI skills/workflows, treat this as a source-backed operating model. Prefer its bottom-up promotion rule and fresh-context retest loop over speculative skill-library design, while preserving stricter audit requirements for high-blast-radius work.
