@@ -1,0 +1,80 @@
+id: chase-ai-reference-led-motion-design
+name: Chase AI Reference-Led Motion Design
+category: media-production-workflows
+source:
+  type: youtube
+  url: https://www.youtube.com/watch?v=eyDKoGU_vHk
+  creator: Chase AI
+  title: GPT 6 Astra Is INSANE for Motion Design
+  user_offset_seconds: 328
+reconstruction_status: RECONSTRUCTED
+research_date: '2026-09-12'
+runtime_tested: false
+capture_status: Exact-ID third-party transcript; partial visual inspection; primary repository and provider corroboration
+inputs:
+  - Communication goal and audience
+  - Approved factual copy and authentic product media
+  - Suitable source example and complete source prompt
+  - Duration, aspect ratio, audio and spending authorization
+outputs:
+  - Reviewable full-film brief and minimum asset plan
+  - Authorized film job and exact request record when production is commissioned
+  - Observed quality review and bounded correction decision
+tools:
+  - Codex or Claude Code as source-package host
+  - cth9191/motion-design reference package
+  - Higgsfield MCP as creator-package production adapter
+  - Current suitable Seedance video model
+  - Optional reference image and finishing tools
+steps:
+  - id: select
+    name: Choose a relevant source example
+    action: Match the communication goal to an example and read its complete prompt and adaptation guide.
+    provenance: EXACT
+    evidence:
+      - source_url: https://github.com/cth9191/motion-design/blob/main/skills/motion-design/SKILL.md
+        provenance: EXACT
+        note: Directly specified in the inspected instructions; not independently executed.
+  - id: adapt
+    name: Resolve the film and asset plan
+    action: Adapt timed beats, exact copy, transitions and audio; use only necessary role-labelled reference assets.
+    provenance: EXACT
+    evidence:
+      - source_url: https://github.com/cth9191/motion-design/blob/main/skills/motion-design/references/production.md
+        provenance: EXACT
+  - id: gate
+    name: Respect review and spending boundaries
+    action: Stop in draft mode; check actual capability, entitlement and cost without submitting a paid probe.
+    provenance: EXACT
+    evidence:
+      - source_url: https://github.com/cth9191/motion-design/blob/main/skills/motion-design/references/production.md
+        provenance: EXACT
+      - source_url: https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-mcp
+        provenance: EXACT
+        note: Programmatic generation uses standard credits.
+  - id: submit
+    name: Submit one complete film
+    action: Bind actual asset identifiers, submit the authorized full-film request, save job state and rejoin uncertain jobs before retrying.
+    provenance: EXACT
+    evidence:
+      - source_url: https://github.com/cth9191/motion-design/blob/main/skills/motion-design/references/production.md
+        provenance: EXACT
+  - id: review
+    name: Inspect and bound correction
+    action: Review full playback and audio; allow one authorized corrective job or supported edit by default, then report unresolved issues.
+    provenance: EXACT
+    evidence:
+      - source_url: https://github.com/cth9191/motion-design/blob/main/skills/motion-design/references/production.md
+        provenance: EXACT
+  - id: evaluate
+    name: Compare accepted outputs with the baseline
+    action: Measure active work, total charged attempts and quality against the existing production method before expanding.
+    provenance: INFERRED
+    evidence:
+      - source_url: https://github.com/cth9191/motion-design/blob/main/skills/motion-design/references/production.md
+        provenance: INFERRED
+        note: Evaluation extension built on source review and job records; no measured result asserted.
+notes: >-
+  EXACT means directly documented, not runtime-verified. The gallery is source material, not the package's own success sample.
+  Current provider CLI guidance differs from the source package's MCP routing. Account price, entitlement, licensing and output fidelity remain unverified.
+  See SOURCE_MAP.md and LIMITATIONS.md. Private business assessments are excluded from this public repository.
