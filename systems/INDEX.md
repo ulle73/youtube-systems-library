@@ -21,17 +21,33 @@ When answering future website-system questions, treat this as a source-backed im
 ## System #002 — Riley Brown Skill-Driven Agent Workflow
 
 - **Path:** `systems/riley-brown-skill-driven-agent-workflow/`
-- **Source:** https://www.youtube.com/watch?v=3cYTWLdHgAE
+- **Source:** https://www.youtube.com/watch?v=N34zz1-RSGw
 - **Creator:** Riley Brown
 - **Category:** agentic-workflow-design / skill-engineering
 - **Status:** RECONSTRUCTED
-- **Capture:** transcript-backed + primary public skill-repository corroboration; partial multimodal; preferred Apify transcript retrieval remained blocked by account hard limit
+- **Capture:** transcript-backed + primary public skill-repository corroboration; partial multimodal
 - **Core lifecycle:** real work -> useful repetition -> skill -> outcome test -> failure feedback -> skill update -> fresh-context retest -> composition -> risk gate -> local/cloud execution
 - **Implementation architecture:** skill instructions/orchestration -> scripts/CLIs/other skills -> APIs/tools -> artifacts/state -> human review
-- **Primary corroboration:** Riley's public `rileys-skills` repository; especially concrete composition in `youtube-thumbnail`, which reuses YouTube research + internet asset retrieval + image generation
-- **Strongest video evidence:** bottom-up skill creation (19:04–19:16), skill composition (31:15–31:55), fresh-context outcome loop (32:08–33:07), risk-dependent review (33:23–33:45), local/cloud split (34:53–37:58)
-- **Security finding:** one public helper contains hardcoded default API credentials; values are intentionally excluded and must not be reused
+- **Primary corroboration:** Riley's public `rileys-skills` repository
 - **Unresolved:** formal reliability threshold, version/rollback protocol, automated eval suite, large-scale composition reliability, private/local skill details, frame-level UI details
 - **Raw evidence:** stored separately in Google Drive Systems Library / Evidence
 
-When answering future questions about creating, refining or composing AI skills/workflows, treat this as a source-backed operating model. Prefer its bottom-up promotion rule, deterministic-tool boundary and fresh-context retest loop over speculative skill-library design. Prefer small composable primitives with explicit dependencies, and preserve stricter audit requirements for high-blast-radius work.
+When answering future questions about creating, refining or composing AI skills/workflows, treat this as a source-backed operating model. Prefer its bottom-up promotion rule, deterministic-tool boundary and fresh-context retest loop over speculative skill-library design.
+
+## System #003 — Riley Brown Agent-Native Realtime Board
+
+- **Path:** `systems/riley-brown-agent-native-realtime-board/`
+- **Source:** https://www.youtube.com/watch?v=3cYTWLdHgAE
+- **Creator:** Riley Brown
+- **Category:** agent-native-applications / multi-agent-coordination / realtime-operations
+- **Status:** RECONSTRUCTED
+- **Capture:** user-provided YouTube screenshot + public timestamped transcript/breakdown; partial multimodal
+- **Core architecture:** human UI + agent clients -> app-specific action interface -> backend operations -> shared realtime state -> attributed events -> synchronized clients
+- **Build framework:** platform -> reference app -> user flow -> design direction -> database/state choice
+- **QA framework:** function -> layout -> mobile -> data/realtime -> edge cases -> secure
+- **Demonstrated stack:** Claude Code/Fable 5.1, Trello reference model, Convex realtime backend, portable agent skill, GitHub, Vercel
+- **Key lesson:** coordinate heterogeneous agents through one durable source of truth and bounded application actions rather than one vendor's chat context
+- **Critical risk:** connectivity does not solve identity or authorization; the demo shows shared agent identity ambiguity and does not establish production-grade RBAC, secret scope, idempotency, audit or rollback
+- **Raw evidence:** stored separately in Google Drive Systems Library / Evidence
+
+When answering future questions about multi-agent internal tools, treat this as a source-backed architecture candidate. Prefer shared durable state plus explicit machine-facing actions, while designing identity, permissions, audit and secret handling separately for production.
