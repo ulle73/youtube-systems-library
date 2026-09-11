@@ -1,7 +1,7 @@
 id: system-002-riley-brown-skill-driven-agent-workflow
 name: Riley Brown Skill-Driven Agent Workflow
 status: RECONSTRUCTED
-capture_status: transcript-backed-partial-multimodal
+capture_status: transcript-backed-primary-repo-corroborated-partial-multimodal
 category:
   - agentic-workflow-design
   - skill-engineering
@@ -13,6 +13,11 @@ source:
   url: https://www.youtube.com/watch?v=3cYTWLdHgAE
   publication_date: 2026-08-16
   retrieval_date: 2026-09-11
+corroboration:
+  public_skill_repo: https://github.com/rbrown101010/rileys-skills
+  transcript_mirrors:
+    - Podscan
+    - Podcast Rex preview
 objective: >-
   Convert repeated successful AI-assisted work into reusable skills, refine them by
   outcome in fresh context, compose mature skills into larger workflows, and increase
@@ -30,6 +35,22 @@ core_loop:
   - compose_with_proven_skills
   - apply_risk_gate
   - choose_execution_environment
+implementation_layers:
+  skill_instructions:
+    state: EXACT_PRIMARY_REPO
+    role: triggers, decision rules, ordered workflow, defaults, output expectations, tool selection
+  scripts_and_cli:
+    state: EXACT_PRIMARY_REPO
+    role: deterministic retrieval, API calls, normalization, file generation and exact operations
+  external_services:
+    state: EXACT_PRIMARY_REPO
+    role: data retrieval or actions such as YouTube search/transcripts, images, publishing and records
+  local_state_and_artifacts:
+    state: EXACT_PRIMARY_REPO
+    role: working files, manifests, references and editable outputs
+  human_judgment:
+    state: EXACT_VIDEO
+    role: quality standard, selection, failure feedback and higher-risk approval
 principles:
   bottom_up_skill_creation:
     state: EXACT
@@ -39,6 +60,15 @@ principles:
     state: EXACT
     description: Existing skills can be mixed and matched to discover new workflows.
     trace: 31:15-31:55
+  concrete_dependency_composition:
+    state: EXACT_PRIMARY_REPO
+    description: The public youtube-thumbnail skill explicitly reuses youtube-researcher, internet-image-puller and image generation instead of duplicating their logic.
+  skill_package_model:
+    state: EXACT_PRIMARY_REPO
+    description: Riley's public repo describes personal Codex skills as manually maintained filesystem packages containing portable instructions, scripts, references, metadata, templates and assets.
+  deterministic_execution_boundary:
+    state: RECONSTRUCTED
+    description: Durable orchestration and judgment live in skill instructions while exact repeatable mechanics are delegated to scripts, CLIs, APIs and artifact formats where useful.
   outcome_refinement:
     state: EXACT
     description: Run, judge output, explain failure, update the skill, then retest.
@@ -55,6 +85,9 @@ principles:
     state: EXACT
     description: Cloud execution is preferable for unattended recurring work that should not depend on a local machine staying on.
     trace: 34:53-37:58
+  credential_externalization:
+    state: RECONSTRUCTED_SAFETY_RULE
+    description: Credentials are runtime configuration and must stay outside versioned skill knowledge; public/default credentials must never be copied into Golfkuponger systems.
   lifecycle_model:
     state: RECONSTRUCTED
     description: The end-to-end promotion/test/composition/governance loop combines several explicit source segments.
@@ -82,12 +115,19 @@ risk_model:
   high:
     examples: [payments, sensitive_documents, destructive_writes, mission_critical_external_actions]
     default: explicit skill/tool/permission audit plus independent review and approval
+security_findings:
+  - Primary public artifacts show mixed credential hygiene.
+  - Some skills explicitly use environment variables or OS keychain storage.
+  - One public YouTube helper contains hardcoded default API credentials; values are intentionally not preserved here and must be treated as exposed/compromised.
+  - Golfkuponger reuse must use managed connector auth, environment variables, keychain or a dedicated secret store.
 unresolved:
   - formal reliability threshold for promoting a skill
   - versioning and rollback protocol
   - automated eval suite for non-creative skills
   - large-scale multi-agent composition reliability
   - frame-level verification of UI-specific details
+  - exact implementation of every private/local Riley skill not present in the public repo
 evidence:
   drive: GOLFKUPONGER/Systems Library/Evidence/2026-08-16_riley-brown_skill-driven-agent-workflow_evidence.md
   research_topic: GOLFKUPONGER/Research Library/Topics/Agentic Workflow Design
+  primary_repo: https://github.com/rbrown101010/rileys-skills
