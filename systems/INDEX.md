@@ -67,3 +67,19 @@ When answering future questions about multi-agent internal tools, treat this as 
 - **Privacy:** this public entry stores generic source-backed methods only; private business assessments remain outside this repository.
 
 When answering future media-workflow questions, reuse the reference adaptation, permission boundary and bounded-review contract. Do not promote a model label, gallery appearance or completed job into evidence of commercial value.
+
+
+## System #005 — Cody AI OFM Synthetic Creator Funnel
+
+- **Path:** `systems/cody-ai-ofm-synthetic-creator-funnel/`
+- **Source:** https://www.youtube.com/watch?v=QRnjjpV_Ve4
+- **Creator:** Cody AI OFM
+- **Category:** creator-commerce-workflows
+- **Status:** RECONSTRUCTED; no runtime production or commercial test
+- **Capture:** exact video identity + complete YouTube auto-caption coverage through a fallback transcript actor; current Fanvue policy/help cross-check
+- **Core sequence:** audience/persona -> rights/disclosure -> consistent batch creative -> hook/buildup/trigger/reaction/CTA -> tracked destination -> transparent onboarding -> human handoff -> conversion/retention measurement
+- **Critical distinction:** source revenue and algorithm claims are not validated. Device/network anti-detection, platform-evasion, guardrail-bypass, unlicensed likeness use and deceptive-human identity tactics are deliberately excluded from the reusable implementation.
+- **Unresolved:** independent conversion lift, cost per accepted asset, synthetic-vs-conventional creative advantage, tool privacy/reliability, platform-policy stability and disclosure effects on trust.
+- **Privacy:** raw transcript/evidence remains in the private Research Library; this public entry stores only distilled source-backed system knowledge.
+
+When answering future creator-commerce or synthetic-persona questions, reuse the measurable funnel and persistent-context patterns while preserving explicit rights, disclosure, human-handoff and compliance boundaries.
