@@ -1,0 +1,104 @@
+id: cody-ai-ofm-synthetic-creator-funnel
+name: Cody AI OFM Synthetic Creator Funnel
+category: creator-commerce-workflows
+source:
+  type: youtube
+  url: https://www.youtube.com/watch?v=QRnjjpV_Ve4
+  creator: Cody AI OFM
+  title: How to Build an AI Onlyfans Influencer Using GPT-6 Astra (Full Course)
+reconstruction_status: RECONSTRUCTED
+research_date: '2026-09-20'
+runtime_tested: false
+capture_status: Exact video ID and metadata verified; complete YouTube auto-caption coverage via fallback transcript actor; current Fanvue help/policy cross-check
+inputs:
+  - Defined audience and commercial objective
+  - Clearly disclosed synthetic persona or brand character
+  - Owned or licensed visual references
+  - Approved content boundaries and channel rules
+  - Trackable destination and attribution parameters
+  - Human escalation policy and measurable conversion/retention events
+outputs:
+  - Persistent persona/creative brief
+  - Batch image/video asset plan
+  - Repeatable short-form content structure
+  - Tracked CTA and destination flow
+  - Transparent automated onboarding/triage
+  - Human handoff and outcome measurement record
+tools:
+  - GPT-6 Astra / Codex as described by the source
+  - KinetAI-style avatar and image-generation API as described by the source
+  - Seedance-style image-to-video generation; exact transcript spelling is uncertain
+  - Instagram or another discovery channel
+  - Fanvue or another transparent subscription/destination platform
+  - TipChat-style conversational automation with human handoff
+steps:
+  - id: define
+    name: Define audience, niche and persona
+    action: Choose a narrow audience hypothesis and a consistent persona/brand brief before generating assets.
+    provenance: EXACT
+    evidence:
+      - source_url: https://www.youtube.com/watch?v=QRnjjpV_Ve4&t=180s
+        provenance: EXACT
+        note: Approx. 03:00-04:30.
+  - id: rights
+    name: Resolve disclosure and asset rights
+    action: Use only owned/licensed references and make synthetic identity disclosure explicit before production.
+    provenance: RECONSTRUCTED
+    evidence:
+      - source_url: https://help.fanvue.com/en/articles/9538738-is-ai-content-allowed-on-fanvue
+        provenance: EXACT
+        note: Current platform guidance requires AI disclosure and authorization for reused content.
+  - id: generate
+    name: Generate consistent asset batches
+    action: Use a persistent character/creative specification to produce multiple images and selected video variants.
+    provenance: EXACT
+    evidence:
+      - source_url: https://www.youtube.com/watch?v=QRnjjpV_Ve4&t=356s
+        provenance: EXACT
+        note: Approx. 05:56-10:30.
+  - id: format
+    name: Apply a repeatable short-form structure
+    action: Draft content using hook, buildup, trigger, reaction and CTA as a testable creative grammar.
+    provenance: EXACT
+    evidence:
+      - source_url: https://www.youtube.com/watch?v=QRnjjpV_Ve4&t=824s
+        provenance: EXACT
+        note: Approx. 13:44-15:10.
+  - id: attribute
+    name: Track the destination
+    action: Create channel-specific attribution before scaling traffic or messaging automation.
+    provenance: EXACT
+    evidence:
+      - source_url: https://www.youtube.com/watch?v=QRnjjpV_Ve4&t=1010s
+        provenance: EXACT
+        note: Approx. 16:50-18:00.
+  - id: onboard
+    name: Automate transparent onboarding
+    action: Use clearly disclosed automation for low-risk greetings, triage and context collection; do not pretend an AI is a human.
+    provenance: RECONSTRUCTED
+    evidence:
+      - source_url: https://www.youtube.com/watch?v=QRnjjpV_Ve4&t=1080s
+        provenance: EXACT
+        note: Source demonstrates automated greetings/persona configuration; transparency boundary is a compliance reconstruction.
+      - source_url: https://help.fanvue.com/en/articles/14290142-how-do-i-know-if-a-creator-is-ai
+        provenance: EXACT
+  - id: handoff
+    name: Escalate when judgement is needed
+    action: Route conversations/actions beyond approved automation scope to a human rather than maximizing autonomy.
+    provenance: RECONSTRUCTED
+    evidence:
+      - source_url: https://www.youtube.com/watch?v=QRnjjpV_Ve4&t=1190s
+        provenance: EXACT
+        note: Source shows optional human-chat handoff.
+  - id: measure
+    name: Measure downstream outcomes
+    action: Compare content archetype, channel, conversion, retention and total cost rather than optimizing raw views or asset count.
+    provenance: INFERRED
+    evidence:
+      - source_url: https://www.youtube.com/watch?v=QRnjjpV_Ve4&t=222s
+        provenance: RECONSTRUCTED
+        note: Source emphasizes retention and downstream spend; full measurement contract is a reconstruction.
+notes: >-
+  EXACT means stated or shown in the source, not independently validated. The source includes detailed anti-detection,
+  platform-evasion and guardrail-bypass ideas; those are intentionally excluded from this reusable implementation.
+  Revenue and algorithm claims are not treated as established outcomes. See SOURCE_MAP.md and LIMITATIONS.md.
