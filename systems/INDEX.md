@@ -83,3 +83,20 @@ When answering future media-workflow questions, reuse the reference adaptation, 
 - **Privacy:** raw transcript/evidence remains in the private Research Library; this public entry stores only distilled source-backed system knowledge.
 
 When answering future creator-commerce or synthetic-persona questions, reuse the measurable funnel and persistent-context patterns while preserving explicit rights, disclosure, human-handoff and compliance boundaries.
+
+
+## System #006 — Samin Yasar Cost-Aware Higgsfield API Video Pipeline
+
+- **Path:** systems/samin-yasar-cost-aware-higgsfield-api-video-pipeline/
+- **Source:** https://www.youtube.com/watch?v=BTVpef58xMY
+- **Creator:** Samin Yasar
+- **Category:** media-production-workflows
+- **Status:** RECONSTRUCTED; no runtime production or commercial test
+- **Capture:** exact video identity + complete YouTube auto-caption transcript through fallback provider; no scene-frame archive; current Higgsfield API and OpenHiggsfield repository cross-check
+- **Core sequence:** story → storyboard/reference images → lower-cost video drafts → select winner → premium final/transformation → cost/result write-back
+- **Critical distinction:** pay-per-generation visibility and staged spending are reusable mechanisms; the source's 10x efficiency claim, one-off demo cost/speed and client-SaaS demand are not validated.
+- **Primary implementation references:** https://higgsfield.ai/higgsfield-api and https://github.com/wide-trace/open-higgsfield
+- **Unresolved:** accepted-output unit cost, draft-to-final predictive value, output fidelity, account-specific break-even versus subscription, maintenance burden and commercial impact.
+- **Privacy:** raw transcript/evidence remains in private Drive evidence; this public entry stores only distilled source-backed system knowledge.
+
+When answering future AI-video production questions, reuse the progressive-spend pattern and generation ledger before proposing a new platform. Treat model names and promotional discounts as replaceable configuration, not durable architecture.
