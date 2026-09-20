@@ -1,0 +1,50 @@
+id: samin-yasar-cost-aware-higgsfield-api-video-pipeline
+name: Samin Yasar Cost-Aware Higgsfield API Video Pipeline
+category: media-production-workflows
+source:
+  type: youtube
+  url: https://www.youtube.com/watch?v=BTVpef58xMY
+  creator: Samin Yasar
+  title: I Have Spent $10,000 on Higgsfield. This is what I learned
+reconstruction_status: RECONSTRUCTED
+research_date: '2026-09-20'
+runtime_tested: false
+capture_status: Exact video identity; complete YouTube auto-caption transcript via fallback provider; no scene-frame archive
+inputs:
+  - Approved creative goal and reference assets
+  - Duration, aspect ratio and quality target
+  - Paid-generation budget ceiling
+  - Higgsfield API credentials when authorized
+outputs:
+  - Storyboard and preview frames
+  - Lower-cost draft clips
+  - Selected premium/final generation
+  - Per-job cost and acceptance record
+steps:
+  - id: plan
+    action: Plan story and shot-by-shot storyboard before paid video generation.
+    provenance: EXACT
+    source: https://www.youtube.com/watch?v=BTVpef58xMY&t=783s
+  - id: preview
+    action: Generate preview/reference images and choose visual direction.
+    provenance: EXACT
+    source: https://www.youtube.com/watch?v=BTVpef58xMY&t=788s
+  - id: draft
+    action: Create several short exploratory clips with lower-cost video models.
+    provenance: EXACT
+    source: https://www.youtube.com/watch?v=BTVpef58xMY&t=831s
+  - id: select
+    action: Select the winning direction before escalating spend.
+    provenance: EXACT
+    source: https://www.youtube.com/watch?v=BTVpef58xMY&t=843s
+  - id: finish
+    action: Use the premium model or transformation only for the selected direction.
+    provenance: EXACT
+    source: https://www.youtube.com/watch?v=BTVpef58xMY&t=845s
+  - id: account
+    action: Persist provider model, request status, actual charge, attempts and acceptance outcome.
+    provenance: RECONSTRUCTED
+  - id: package
+    action: Package stable repeated routing into a reusable skill or app only after repetition is proven.
+    provenance: RECONSTRUCTED
+notes: Source-reported efficiency and SaaS-demand claims are unverified. Prices and discounts are time-sensitive.
